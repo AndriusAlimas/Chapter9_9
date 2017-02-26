@@ -13,4 +13,29 @@
   	</jsp-property-group>
   </jsp-config>
   
+  <!--  Declaring a catch all error page -->
+  <!-- this applies to everything in your web app - not just JSPs. You can override it in individual JSP by
+   adding a page directive with an errorPage attribute. See in badPage.jsp -->
+   <error-page>
+   	<exception-type>java.lang.Throwable</exception-type>
+   	<location>/errorPage.jsp</location><!-- see that badPage.jsp forward this!! -->
+   </error-page>
+   
+   <!--  Declaring an error page for more explicit exception -->
+   <!-- This configures an error page that's called only when there's an ArithmeticException. If you
+   have both this declaration and the catch-all above, any exception other than ArithmeticException
+   will still end up at the "errorPage.jsp" -->
+   
+   <error-page>
+   	<exception-type>java.lang.ArithmeticException</exception-type>
+   	<location>/arithmeticError.jsp</location>
+   </error-page>
+   
+   <!-- Declaring an error page based on an HTTP status code -->
+   <!-- This configures an error page that's called only when the status code 
+   for the response is "404" (file not found) -->
+   <error-page>
+   	<error-code>404</error-code>
+   	<location>/notFoundError.jsp</location>
+   </error-page>
 </web-app>
