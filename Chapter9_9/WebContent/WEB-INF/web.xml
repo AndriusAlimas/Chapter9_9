@@ -38,6 +38,7 @@
    for the response is "404" (file not found) -->
    <error-page>
    	<error-code>404</error-code>
-   	<location>/notFoundError.jsp</location>
+   	<location>/notFoundError.jsp</location> <!-- MUST be relative to the web-app root/context, which means it MUST
+    start with a slash.(This is true regardless of whether the error page is based on error-code or exception type -->
    </error-page>
 </web-app>
